@@ -165,7 +165,7 @@ void QuickSort(int arr[], int s, int e){
 
 // This function is used to print the Array Before Sorting
 void PrintingArrayBefore(int arr[], int n){
-    cout << "Printing array Elements Before Sorting: ";
+    cout << "Printing the Array Elements Before Sorting: ";
     for(int i = 0; i < n; i++){
         cout << arr[i] << " , ";
     }
@@ -174,7 +174,7 @@ void PrintingArrayBefore(int arr[], int n){
 
 // This function is used to print the Array After Sorting
 void PrintingArray(int arr[], int n){
-    cout << "Printing array Elements After Sorting: ";
+    cout << "Printing the  Array Elements After Sorting: ";
     for(int i = 0; i < n; i++){
         cout << arr[i] << " , ";
     }
