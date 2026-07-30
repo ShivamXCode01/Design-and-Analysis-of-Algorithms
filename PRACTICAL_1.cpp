@@ -53,64 +53,56 @@ void InsertionSort(int arr[], int n){
 }
 
 // This is the function of Merge sort
-void Merge(int arr[], int s, int e){
+void Merge(int arr[], int st, int mid, int end) {
+    int i = st;
+    int j = mid + 1;
+    int k = 0;
 
-    int mid = s + (e - s) / 2;
+    int temp[end - st + 1];
 
-    int len1 = mid - s + 1;
-    int len2 = e - mid;
-
-    int *first = new int[len1];
-    int *second = new int[len2];
-
-    int mainArrayIndex = s;
-
-    for(int i = 0; i < len1; i++){
-        first[i] = arr[mainArrayIndex++];
-    }
-
-    for(int i = 0; i < len2; i++){
-        second[i] = arr[mainArrayIndex++];
-    }
-
-    int index1 = 0;
-    int index2 = 0;
-    mainArrayIndex = s;
-
-    while(index1 < len1 && index2 < len2){
-
-        if(first[index1] < second[index2]){
-            arr[mainArrayIndex++] = first[index1++];
+  
+    while (i <= mid && j <= end) {
+        if (arr[i] < arr[j]) {
+            temp[k] = arr[i];
+            i++;
+        } else {
+            temp[k] = arr[j];
+            j++;
         }
-        else{
-            arr[mainArrayIndex++] = second[index2++];
-        }
+        k++;
     }
 
-    while(index1 < len1){
-        arr[mainArrayIndex++] = first[index1++];
+   
+    while (i <= mid) {
+        temp[k] = arr[i];
+        i++;
+        k++;
     }
 
-    while(index2 < len2){
-        arr[mainArrayIndex++] = second[index2++];
+   
+    while (j <= end) {
+        temp[k] = arr[j];
+        j++;
+        k++;
     }
 
-    delete[] first;
-    delete[] second;
+    
+    for (int idx = 0; idx < k; idx++) {
+        arr[st + idx] = temp[idx];
+    }
 }
 
-void MergeSort(int arr[], int s, int e){
-
-    if(s >= e){
+void MergeSort(int arr[], int st, int end) {
+    if (st >= end) {
         return;
     }
 
-    int mid = s + (e - s) / 2;
+    int mid = (st + end) / 2;
 
-    MergeSort(arr, s, mid);
-    MergeSort(arr, mid + 1, e);
+    MergeSort(arr, st, mid);
+    MergeSort(arr, mid + 1, end);
 
-    Merge(arr, s, e);
+    Merge(arr, st, mid, end);
 }
 
 // This is the function of Quick sort
