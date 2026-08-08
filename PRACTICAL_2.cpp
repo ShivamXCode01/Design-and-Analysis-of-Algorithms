@@ -11,6 +11,7 @@ void PrintingArray(int arr[], int n){
     cout << endl;
 }
 
+
 int linearSearch(int arr[], int n, int t){
     for(int i = 0 ; i < n ; i++){
         if(arr[i] == t){
