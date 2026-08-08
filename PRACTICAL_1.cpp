@@ -17,6 +17,7 @@ void SelectionSort(int arr[], int n){
     }
 }
 
+
 // This is the function of Bubble sort
 void BubbleSort(int arr[], int n){
     for(int i = 1; i < n; i++){
