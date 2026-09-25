@@ -6,6 +6,7 @@ using namespace std;
 int chainMatrix(int p[],int n){
       int dp[n][n];
 
+      // We filling the diagonal part with zero 
       for (int i = 1 ; i< n ; i++){
         dp[i][i] = 0;
       }
