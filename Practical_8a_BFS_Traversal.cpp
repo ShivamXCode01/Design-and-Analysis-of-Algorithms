@@ -62,6 +62,28 @@ void BFSTraversal(node*root){
         }
     }
 }
+void DFSTraversal(int start, vector<int> adj[], int V) {
+    vector<bool> visited(V, false);
+    stack<int> s;
+
+    s.push(start);
+
+    while (!s.empty()) {
+        int node = s.top();
+        s.pop();
+
+        if (!visited[node]) {
+            visited[node] = true;
+            cout << node << " ";
+
+            for (int neighbour : adj[node]) {
+                if (!visited[neighbour]) {
+                    s.push(neighbour);
+                }
+            }
+        }
+    }
+}
 
 
 int main (){
@@ -70,6 +92,8 @@ int main (){
     root = buildTree(root);
 
     BFSTraversal(root);
+    cout << endl;
+    DFSTraversal(root);
 
     return 0 ; 
 }

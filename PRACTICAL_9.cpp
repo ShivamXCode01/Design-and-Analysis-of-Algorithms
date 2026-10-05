@@ -1,3 +1,4 @@
+//Prism Algorithm 
 #include <iostream>
 #include <climits>
 using namespace std;
