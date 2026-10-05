@@ -63,29 +63,33 @@ void BFSTraversal(node*root){
         }
     }
 }
-void DFSTraversal(int start, vector<int> adj[], int V) {
-    vector<bool> visited(V, false);
-    stack<int> s;
 
-    s.push(start);
+void DFSTraversal(node* root) {
+
+    if (root == NULL)
+        return;
+
+    stack<node*> s;
+    s.push(root);
 
     while (!s.empty()) {
-        int node = s.top();
+
+        node* temp = s.top();
         s.pop();
 
-        if (!visited[node]) {
-            visited[node] = true;
-            cout << node << " ";
+        cout << temp->data << "  ";
 
-            for (int neighbour : adj[node]) {
-                if (!visited[neighbour]) {
-                    s.push(neighbour);
-                }
-            }
+        // Push right first
+        if (temp->right) {
+            s.push(temp->right);
+        }
+
+        // Push left second
+        if (temp->left) {
+            s.push(temp->left);
         }
     }
 }
-
 
 int main (){
 
